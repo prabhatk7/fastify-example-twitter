@@ -1,6 +1,6 @@
 'use strict'
 
-const userProfileOutput = {
+const userProfileOutput = {              //userProfileOutput object is created
   type: 'object',
   require: [ '_id', 'username' ],
   properties: {
@@ -9,7 +9,7 @@ const userProfileOutput = {
   }
 }
 
-const registration = {
+const registration = {                                     //registration object is created
   // This jsonschema will be used for data validation
   body: {
     type: 'object',
@@ -38,7 +38,7 @@ const registration = {
   }
 }
 
-const login = {
+const login = {                              //login object is created for data validation
   body: {
     type: 'object',
     require: [ 'username', 'password' ],
@@ -60,7 +60,7 @@ const login = {
   }
 }
 
-const search = {
+const search = {                              //search schema is created
   querystring: {
     type: 'object',
     require: [ 'search' ],
@@ -77,7 +77,7 @@ const search = {
   }
 }
 
-const getProfile = {
+const getProfile = {                            //getProfile schema is created
   params: {
     type: 'object',
     required: ['userId'],
@@ -93,7 +93,7 @@ const getProfile = {
   }
 }
 
-module.exports = {
+module.exports = {                           //all schemas in this file are exported 
   registration,
   login,
   search,
