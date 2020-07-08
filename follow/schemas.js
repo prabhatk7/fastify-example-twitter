@@ -1,6 +1,6 @@
 'use strict'
 
-const follow = {
+const follow = {           //follow schema
   schema: {
     body: {
       type: 'object',
@@ -13,7 +13,7 @@ const follow = {
   }
 }
 
-const unfollow = {
+const unfollow = {            //unfollow schema
   schema: {
     body: {
       type: 'object',
@@ -26,7 +26,7 @@ const unfollow = {
   }
 }
 
-const followers = {
+const followers = {                        //followers schema
   schema: {
     params: {
       type: 'object',
@@ -47,7 +47,7 @@ const followers = {
   }
 }
 
-module.exports = {
+module.exports = {          //follow, unfollow ans followers exported
   follow,
   unfollow,
   followers
