@@ -1,6 +1,6 @@
 'use strict'
 
-function execRedis (redisClient, method, args) {
+function execRedis (redisClient, method, args) {               //execRedis fun defined
   return new Promise(function (resolve, reject) {
     args.push(function (err, result) {
       if (err) return reject(err)
@@ -10,7 +10,7 @@ function execRedis (redisClient, method, args) {
   })
 }
 
-function follow (redisClient, meId, otherId) {
+function follow (redisClient, meId, otherId) {                         //follow method is defined
   return Promise.all([
     execRedis(redisClient, 'zadd', [`following:${meId}`, Date.now(), otherId]),
     execRedis(redisClient, 'zadd', [`followers:${otherId}`, Date.now(), meId])
@@ -32,12 +32,12 @@ function getFollowers (redisClient, otherId) {
   return execRedis(redisClient, 'zrange', [`followers:${otherId}`, 0, -1])
 }
 
-class FollowService {
+class FollowService {                                                       //FollowService class created
   constructor (redisClient) {
     this.redisClient = redisClient
   }
 
-  follow (meId, otherId) {
+  follow (meId, otherId) {                                                //follow function defined above is returned inside follow method
     return follow(this.redisClient, meId + '', otherId + '')
   }
 
@@ -54,4 +54,4 @@ class FollowService {
   }
 }
 
-module.exports = FollowService
+module.exports = FollowService                                //FollowService is exported
